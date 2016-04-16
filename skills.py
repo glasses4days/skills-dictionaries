@@ -32,7 +32,9 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
+    #converts words to set to remove duplicates
     without_duplicates = set(words)
+    #converts set back to list for desired format
     final_without_duplicates = list(without_duplicates)
 
     return final_without_duplicates
@@ -65,7 +67,14 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return []
+    #converts arguments to sets
+    set1 = set(items1)
+    set2 = set(items2)
+
+    #uses & for set math and converts the resulting set to a list
+    unique_common_items = list(set1 & set2)
+
+    return unique_common_items
 
 
 def count_words(phrase):
@@ -93,7 +102,13 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    return {}
+    all_words = phrase.split()
+
+    #dictionary comprehension saying word is the key and the count is
+    #the value, using a for loop and .count()
+    word_count = {word: all_words.count(word) for word in all_words}
+
+    return word_count
 
 
 def translate_to_pirate_talk(phrase):
@@ -125,7 +140,7 @@ def translate_to_pirate_talk(phrase):
 
     For example::
 
-        >>> translate_to_pirate_talk("my student is not a man")
+        >>> translate_to_pirate_talk("my student is not a boy")
         'me swabbie be not a matey'
 
     You should treat words with punctuation as if they were different
@@ -134,6 +149,32 @@ def translate_to_pirate_talk(phrase):
         >>> translate_to_pirate_talk("my student is not a man!")
         'me swabbie be not a man!'
     """
+
+    english_to_pirate = {
+                        "sir": "matey", 
+                        "hotel": "fleabag inn",
+                        "student": "swabbie",
+                        "boy": "matey",
+                        "professor": "foul blaggart",
+                        "restaurant": "galley",
+                        "your": "yer",
+                        "excuse": "arr",
+                        "students": "swabbies",
+                        "are": "be",
+                        "restroom": "head",
+                        "my": "me",
+                        "is": "be"
+                        }
+
+    phrase_split = phrase.split()
+
+    for word in phrase_split:
+        #checks to see if the word is a dict value
+        if word in english_to_pirate:
+                #returns the key of the value found
+                translation = english_to_pirate[word]
+            #need to replace english in list with pirate key...
+                
 
     return ""
 
