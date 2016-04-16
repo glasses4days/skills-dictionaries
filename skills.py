@@ -32,7 +32,10 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
-    return []
+    without_duplicates = set(words)
+    final_without_duplicates = list(without_duplicates)
+
+    return final_without_duplicates
 
 
 def find_unique_common_items(items1, items2):
