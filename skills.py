@@ -174,7 +174,10 @@ def translate_to_pirate_talk(phrase):
                 #returns the key of the value found
                 translation = english_to_pirate[word]
             #need to replace english in list with pirate key...
-                
+            #spending a lot of time on getting it work, getting errors 
+            #giving too many values to unpack 
+
+                 
 
     return ""
 
@@ -193,7 +196,17 @@ def sort_by_word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
     """
 
-    return []
+    sorted_by_length = {}
+
+    for word in words:
+        count = len(word)
+
+        if count not in sorted_by_length:
+            sorted_by_length[count] = [word]
+        else:
+            sorted_by_length[count].append(word)
+
+    return sorted_by_length.items()
 
 
 def get_sum_zero_pairs(numbers):
