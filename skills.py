@@ -235,8 +235,15 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    sum_numbers = []
 
-    return []
+    for num, i in range(len(numbers - 1)):
+        sum1 = num[i] + num[i + 1]
+        if sum1 == 0:
+            numbers.append([num[i], num[i] + 1])
+    
+
+    return sum_numbers
 
 
 def kids_game(names):
